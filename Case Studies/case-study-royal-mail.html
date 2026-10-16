@@ -1,0 +1,434 @@
+<meta charset="utf-8">
+<!-- ============================================================
+  CASE STUDY CERULEAN CIRCLE — Royal Mail
+  DARK/GOLD-Design der Landingpage (Präfix fnl-, alle Stile unter .fnl-page gescoped)
+  Einbindung: Gutenberg "Individuelles HTML"-Block oder Elementor HTML-Widget
+  Inhalte: ausschließlich aus Case_Studies_Marcel_Donges.md (Transkripte/Präsentationen).
+  Kommentare "VOR VERÖFFENTLICHUNG PRÜFEN" markieren Aussagen, die Marcel bestätigen muss.
+============================================================ -->
+<div class="fnl-page" id="fnl-top">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+  .fnl-page{
+    --fnl-bg:#383838; --fnl-surface:#2E2E2E; --fnl-card:#434343; --fnl-ink:#FFFFFF; --fnl-muted:#C6C6C6;
+    --fnl-border:#545454; --fnl-gold:#C99E44; --fnl-gold-light:#FBE894; --fnl-red:#E5484D; --fnl-radius:8px;
+    --fnl-grad:linear-gradient(126deg,#9B741D,#BC9844 25%,#CBAF6E 50%,#FBE894 65%,#C99E44);
+    --fnl-font-heading:'Fraunces', Georgia, serif;
+    --fnl-font-body:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-family:var(--fnl-font-body); color:var(--fnl-muted); background:var(--fnl-bg);
+    line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased;
+  }
+  .fnl-page, .fnl-page *{ box-sizing:border-box; margin:0; padding:0; }
+  .fnl-page h1,.fnl-page h2,.fnl-page h3{ font-family:var(--fnl-font-heading) !important; color:var(--fnl-ink) !important; line-height:1.15; font-weight:600; }
+  .fnl-page p{ color:var(--fnl-muted); }
+  .fnl-page a{ text-decoration:none !important; color:inherit; }
+  .fnl-page a.fnl-underline{ text-decoration:underline !important; color:var(--fnl-gold); }
+  .fnl-page ul{ list-style:none; }
+  .fnl-container{ max-width:1200px; margin:0 auto; padding:0 20px; }
+  .fnl-section{ padding:clamp(48px,8vw,96px) 0; background:var(--fnl-bg); }
+  .fnl-section--alt{ background:var(--fnl-surface); }
+  .fnl-h1{ font-size:clamp(34px,5vw,56px); }
+  .fnl-h2{ font-size:clamp(28px,4vw,40px); }
+  .fnl-lead{ font-size:18px; }
+  .fnl-goldtext{ background:var(--fnl-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:var(--fnl-gold); }
+  .fnl-btn{ display:inline-block; background:var(--fnl-grad) !important; color:#0A0A0A !important; font-family:var(--fnl-font-body); font-weight:700; font-size:16px; padding:15px 28px; border-radius:var(--fnl-radius); border:0; cursor:pointer; transition:filter .2s ease; text-align:center; min-height:44px; }
+  .fnl-btn:hover{ filter:brightness(1.08); }
+  .fnl-btn--block{ display:block; width:100%; }
+  .fnl-micro{ margin-top:12px; font-size:14px; color:#B0B0B0; }
+  .fnl-ph{ display:flex; align-items:center; justify-content:center; text-align:center; background:#3F3F3F; border:2px dashed #616161; border-radius:var(--fnl-radius); color:#B0B0B0; font-size:13px; font-weight:500; padding:12px; }
+  .fnl-ph--hero{ aspect-ratio:21/9; }
+  .fnl-ph--photo{ aspect-ratio:3/2; }
+  .fnl-ph--square{ aspect-ratio:1/1; }
+  /* Echte Bilder: gleiche Proportionen wie die Platzhalter */
+  .fnl-img{ display:block; width:100%; height:auto; border-radius:var(--fnl-radius); object-fit:cover; background:#2E2E2E; }
+  .fnl-img--hero{ aspect-ratio:21/9; }
+  .fnl-img--photo{ aspect-ratio:3/2; }
+  .fnl-img--slide{ width:auto; max-width:100%; max-height:560px; margin:0 auto; object-fit:contain; }
+  .fnl-img--diagram{ background:#FFFFFF; padding:clamp(12px,2.5vw,24px); object-fit:contain; }
+
+  /* Header (identisch zur Landingpage) */
+  .fnl-header{ position:sticky; top:0; z-index:60; background:rgba(56,56,56,.94); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid var(--fnl-border); }
+  .fnl-header-in{ max-width:1200px; margin:0 auto; padding:0 20px; height:68px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .fnl-logo{ display:inline-flex; align-items:center; }
+  .fnl-logo-img{ display:block; height:30px; width:159.8px; background:url('data:image/png;base64,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') center/contain no-repeat; }
+  .fnl-footer .fnl-logo-img{ height:26px; width:138.5px; }
+  .fnl-nav{ display:none; align-items:center; gap:28px; }
+  .fnl-nav a{ color:var(--fnl-ink); font-weight:500; font-size:15px; }
+  .fnl-nav a:hover, .fnl-nav a.fnl-active{ color:var(--fnl-gold); }
+  .fnl-header .fnl-btn{ display:none; padding:11px 20px; font-size:15px; }
+  .fnl-burger{ display:flex; flex-direction:column; gap:5px; background:none !important; border:0; cursor:pointer; padding:10px; }
+  .fnl-burger span{ display:block; width:24px; height:2px; background:var(--fnl-ink); }
+  .fnl-mobilenav{ display:none; background:#2E2E2E; border-bottom:1px solid var(--fnl-border); padding:8px 20px 20px; }
+  .fnl-mobilenav.fnl-open{ display:block; }
+  .fnl-mobilenav a{ display:block; padding:12px 0; font-weight:500; color:var(--fnl-ink); border-bottom:1px solid #4A4A4A; }
+
+  /* Case-Study-Hero */
+  .fnl-cs-back{ display:inline-block; font-size:14px; font-weight:600; color:#B0B0B0; }
+  .fnl-cs-back:hover{ color:var(--fnl-gold); }
+  .fnl-cs-hero{ max-width:900px; margin:0 auto; text-align:center; }
+  .fnl-cs-tags{ margin-top:26px; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
+  .fnl-tag{ font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; background:rgba(201,158,68,.16); color:var(--fnl-gold); border-radius:999px; padding:4px 11px; }
+  .fnl-cs-hero .fnl-h1{ margin-top:20px; }
+  .fnl-cs-hero .fnl-lead{ margin-top:22px; }
+  .fnl-cs-heroimg{ max-width:1100px; margin:44px auto 0; }
+
+  /* Kennzahlen-Band */
+  .fnl-stats{ padding:clamp(40px,6vw,64px) 0; background:var(--fnl-surface); border-top:1px solid var(--fnl-border); border-bottom:1px solid var(--fnl-border); }
+  .fnl-stats-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:32px; text-align:center; }
+  .fnl-stat-num{ font-family:var(--fnl-font-heading); font-size:clamp(28px,4vw,44px); font-weight:700; background:var(--fnl-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:var(--fnl-gold); }
+  .fnl-stat-label{ margin-top:6px; font-size:14px; color:var(--fnl-muted); }
+
+  /* Artikel */
+  .fnl-article{ max-width:760px; margin:0 auto; }
+  .fnl-article > h2{ font-size:clamp(24px,3vw,32px); margin-top:64px; }
+  .fnl-article > h2:first-child{ margin-top:0; }
+  .fnl-article > p{ margin-top:18px; font-size:17px; line-height:1.75; }
+  .fnl-article > p.fnl-intro{ font-size:19px; line-height:1.7; color:var(--fnl-ink); }
+  .fnl-article strong{ color:var(--fnl-ink); font-weight:600; }
+  .fnl-pull{ margin:44px 0; padding:6px 0 6px 26px; border-left:3px solid var(--fnl-gold); }
+  .fnl-quote{ font-family:var(--fnl-font-heading); font-style:italic; font-weight:500; font-size:clamp(20px,2.6vw,26px); line-height:1.4; color:var(--fnl-ink); }
+  .fnl-quote-src{ margin-top:14px; font-size:14px; font-weight:600; color:var(--fnl-gold); }
+  .fnl-figure{ margin:44px 0; }
+  .fnl-figure figcaption{ margin-top:10px; font-size:13px; color:#9E9E9E; }
+  .fnl-list{ margin-top:22px; display:grid; gap:13px; }
+  .fnl-list li{ display:flex; gap:12px; align-items:flex-start; font-size:16px; color:#D6D6D6; }
+  .fnl-check{ flex:0 0 22px; width:22px; height:22px; margin-top:2px; border-radius:50%; background:var(--fnl-grad); color:#0A0A0A; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; }
+  .fnl-x{ flex:0 0 22px; width:22px; height:22px; margin-top:2px; border-radius:50%; background:rgba(229,72,77,.15); color:var(--fnl-red); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; }
+
+  /* Ablauf (Tage) */
+  .fnl-days{ margin-top:28px; display:grid; gap:14px; }
+  .fnl-day{ display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:start; background:var(--fnl-card); border:1px solid var(--fnl-border); border-radius:var(--fnl-radius); padding:20px 22px; }
+  .fnl-day-num{ min-width:72px; font-family:var(--fnl-font-heading); font-weight:700; font-size:18px; color:var(--fnl-gold); }
+  .fnl-day h3{ font-size:18px; }
+  .fnl-day p{ margin-top:6px; font-size:15px; }
+
+  /* Balkendiagramm Ergebnisreihe */
+  .fnl-bars{ margin-top:30px; background:var(--fnl-card); border:1px solid var(--fnl-border); border-radius:var(--fnl-radius); padding:24px; display:grid; gap:14px; }
+  .fnl-bar-row{ display:grid; grid-template-columns:64px 1fr 110px; gap:14px; align-items:center; }
+  .fnl-bar-label{ font-size:13px; font-weight:600; color:#B0B0B0; }
+  .fnl-bar-track{ height:14px; background:#383838; border-radius:999px; overflow:hidden; }
+  .fnl-bar{ height:100%; border-radius:999px; background:var(--fnl-grad); }
+  .fnl-bar--neg{ background:var(--fnl-red); }
+  .fnl-bar-val{ font-family:var(--fnl-font-heading); font-weight:700; font-size:17px; color:var(--fnl-ink); text-align:right; }
+  .fnl-bar-val--neg{ color:var(--fnl-red); }
+  .fnl-bars-note{ font-size:12px; color:#9E9E9E; }
+  /* Säulendiagramm Royal Mail (vertikal, Nulllinie, Verlustbereich) */
+  .fnl-colchart{ margin-top:30px; background:var(--fnl-card); border:1px solid var(--fnl-border); border-radius:var(--fnl-radius); padding:40px 24px 20px; }
+  .fnl-colchart-plot{ position:relative; height:300px; margin-left:28px; }
+  .fnl-colchart-neg{ position:absolute; left:-28px; right:0; bottom:0; background:rgba(229,72,77,.12); border-radius:0 0 6px 6px; }
+  .fnl-colchart-neg span{ position:absolute; right:8px; bottom:4px; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--fnl-red); }
+  .fnl-colchart-zero{ position:absolute; left:-28px; right:0; height:0; border-top:1px solid #7A7A7A; }
+  .fnl-colchart-zero span{ position:absolute; left:6px; top:-18px; font-size:11px; color:#9E9E9E; }
+  .fnl-colchart-line{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; z-index:2; }
+  .fnl-colchart-cols{ position:absolute; inset:0; display:grid; grid-template-columns:repeat(5,1fr); }
+  .fnl-col{ position:relative; }
+  .fnl-col-bar{ position:absolute; left:50%; width:44%; max-width:64px; transform:translateX(-50%); background:var(--fnl-grad); border-radius:4px 4px 0 0; }
+  .fnl-col-bar--neg{ background:var(--fnl-red); border-radius:0 0 4px 4px; }
+  .fnl-col-dot{ position:absolute; left:50%; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; background:#FBE894; box-shadow:0 0 0 2px var(--fnl-card); z-index:3; }
+  .fnl-col-dot--neg{ background:var(--fnl-red); }
+  .fnl-col-val{ position:absolute; left:0; right:0; text-align:center; font-family:var(--fnl-font-heading); font-weight:700; font-size:17px; color:var(--fnl-ink); white-space:nowrap; z-index:4; }
+  .fnl-col-val--neg{ color:var(--fnl-red); }
+  .fnl-col:hover .fnl-col-bar{ filter:brightness(1.12); }
+  .fnl-colchart-x{ display:grid; grid-template-columns:repeat(5,1fr); margin:12px 0 0 28px; text-align:center; font-size:13px; font-weight:600; color:#B0B0B0; }
+  .fnl-colchart .fnl-bars-note{ margin-top:14px; }
+  @media (max-width:560px){
+    .fnl-colchart{ padding:36px 12px 16px; }
+    .fnl-colchart-plot{ height:240px; }
+    .fnl-col-val{ font-size:13px; }
+    .fnl-colchart-x{ font-size:12px; }
+  }
+
+  /* Info-Box "Auf einen Blick" */
+  .fnl-infobox{ max-width:860px; margin:0 auto; background:var(--fnl-card); border:2px solid var(--fnl-gold); border-radius:var(--fnl-radius); padding:clamp(26px,4vw,44px); }
+  .fnl-infobox .fnl-h2{ font-size:clamp(24px,3vw,32px); }
+  .fnl-infobox-intro{ margin-top:14px; font-size:16px; }
+  .fnl-facts{ margin-top:26px; display:grid; gap:0; border-top:1px solid var(--fnl-border); }
+  .fnl-fact{ display:grid; gap:4px; padding:14px 0; border-bottom:1px solid var(--fnl-border); }
+  .fnl-fact dt{ font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--fnl-gold); }
+  .fnl-fact dd{ font-size:15px; color:#E2E2E2; }
+
+  /* Autor-Box */
+  .fnl-author{ max-width:860px; margin:0 auto; display:grid; gap:28px; align-items:center; }
+  .fnl-author .fnl-ph{ max-width:200px; }
+  .fnl-author .fnl-author-img{ max-width:200px; width:100%; height:auto; background:transparent; border-radius:14px; }
+  .fnl-author-kicker{ font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--fnl-gold); }
+  .fnl-author h2{ margin-top:8px; font-size:clamp(22px,3vw,30px); }
+  .fnl-author p{ margin-top:12px; font-size:15px; }
+
+  /* Weitere Cases (Karten wie Landingpage) */
+  .fnl-cases-grid{ display:grid; gap:16px; margin-top:40px; }
+  .fnl-case{ background:var(--fnl-card); border:1px solid var(--fnl-border); border-radius:var(--fnl-radius); padding:22px; display:flex; flex-direction:column; transition:border-color .2s ease, transform .15s ease; }
+  a.fnl-case:hover{ border-color:var(--fnl-gold); transform:translateY(-2px); }
+  .fnl-case-head{ display:flex; flex-direction:column; align-items:flex-start; gap:9px; }
+  .fnl-case-name{ font-weight:700; font-size:13px; letter-spacing:.05em; color:var(--fnl-ink); }
+  .fnl-case-sit{ margin-top:12px; font-size:14px; line-height:1.5; flex-grow:1; }
+  .fnl-case-num{ margin-top:16px; font-family:var(--fnl-font-heading); font-size:27px; font-weight:700; background:var(--fnl-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:var(--fnl-gold); }
+  .fnl-case-more{ margin-top:14px; font-size:12px; font-weight:700; letter-spacing:.04em; color:var(--fnl-gold); }
+
+  /* CTA-Box */
+  .fnl-ctabox{ max-width:860px; margin:0 auto; text-align:center; }
+  .fnl-ctabox p{ margin-top:18px; font-size:17px; }
+  .fnl-ctabox .fnl-btn{ margin-top:30px; }
+
+  /* Footer */
+  .fnl-footer{ background:#2A2A2A; border-top:1px solid var(--fnl-border); padding:56px 0 32px; }
+  .fnl-footer-grid{ display:grid; gap:36px; }
+  .fnl-footer h4{ color:var(--fnl-ink); font-family:var(--fnl-font-body); font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px; }
+  .fnl-footer ul{ display:grid; gap:9px; }
+  .fnl-footer a, .fnl-footer li{ color:#B0B0B0; font-size:14px; }
+  .fnl-footer a:hover{ color:var(--fnl-gold); }
+  .fnl-copy{ margin-top:44px; padding-top:22px; border-top:1px solid var(--fnl-border); color:#8E8E8E; font-size:13px; }
+
+  /* Sticky Mobile CTA */
+  .fnl-sticky{ position:fixed; left:0; right:0; bottom:0; z-index:70; background:rgba(46,46,46,.97); border-top:1px solid var(--fnl-border); box-shadow:0 -4px 14px rgba(0,0,0,.5); padding:10px 16px calc(10px + env(safe-area-inset-bottom)); transform:translateY(110%); transition:transform .25s ease; }
+  .fnl-sticky.fnl-visible{ transform:translateY(0); }
+
+  @media (min-width:750px){
+    .fnl-stats-grid{ grid-template-columns:repeat(4,1fr); }
+    .fnl-cases-grid{ grid-template-columns:repeat(2,1fr); }
+    .fnl-cases-grid--3{ grid-template-columns:repeat(3,1fr); }
+    .fnl-footer-grid{ grid-template-columns:1.4fr 1fr 1fr 1fr; }
+    .fnl-fact{ grid-template-columns:200px 1fr; gap:20px; }
+    .fnl-author{ grid-template-columns:200px 1fr; }
+  }
+  @media (min-width:990px){
+    .fnl-nav{ display:flex; }
+    .fnl-header .fnl-btn{ display:inline-block; }
+    .fnl-burger, .fnl-mobilenav{ display:none !important; }
+    .fnl-sticky{ display:none; }
+  }
+  @media (max-width:520px){
+    .fnl-bar-row{ grid-template-columns:52px 1fr 84px; gap:10px; }
+    .fnl-bar-val{ font-size:15px; }
+    .fnl-day{ grid-template-columns:1fr; gap:6px; }
+  }
+</style>
+
+<!-- ==================== HEADER (wie Landingpage) ==================== -->
+<!-- LINK HIER: "/" überall durch die URL der Landingpage ersetzen -->
+<header class="fnl-header">
+  <div class="fnl-header-in">
+    <a class="fnl-logo" href="../index.html"><span class="fnl-logo-img" role="img" aria-label="Cerulean Circle"></span></a>
+    <nav class="fnl-nav">
+      <a href="../index.html#fnl-ueber">Ansatz</a>
+      <a class="fnl-active" href="../index.html#fnl-projekte">Projekte</a>
+      <a href="../index.html#fnl-webinar">Strategiegespräch</a>
+      <a href="../index.html#fnl-faq">FAQ</a>
+    </nav>
+    <a class="fnl-btn" href="../index.html#fnl-webinar">Strategiegespräch</a>
+    <button class="fnl-burger" id="fnl-burger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="fnl-mobilenav" id="fnl-mobilenav">
+    <a href="../index.html#fnl-ueber">Ansatz</a>
+    <a href="../index.html#fnl-projekte">Projekte</a>
+    <a href="../index.html#fnl-webinar">Strategiegespräch</a>
+    <a href="../index.html#fnl-faq">FAQ</a>
+  </nav>
+</header>
+
+
+<!-- ==================== HERO ==================== -->
+<section class="fnl-section" id="fnl-cs-hero">
+  <div class="fnl-container">
+    <a class="fnl-cs-back" href="../index.html#fnl-projekte">← Alle Projekte</a>
+    <div class="fnl-cs-hero">
+      <div class="fnl-cs-tags"><span class="fnl-tag">Case Study</span><span class="fnl-tag">Logistik</span><span class="fnl-tag">Internet der Dinge</span></div>
+      <h1 class="fnl-h1"><span class="fnl-goldtext">Royal Mail:</span> Als Pakete anfingen, ihren Transport über LKW, Flug und Schiff selbst zu buchen</h1>
+      <p class="fnl-lead">Wie aus einem außer Kontrolle geratenen Sortierzentrum ein Lehrstück für das Internet der Dinge wurde — vom Millionenverlust zu 1,4 Milliarden Pfund Gewinn.</p>
+    </div>
+    <div class="fnl-cs-heroimg">
+      <!-- BILD: cs-royal-mail-hero.jpg (21:9) — src nach Mediathek-Upload ersetzen -->
+      <img class="fnl-img fnl-img--hero" src="../marcel-donges-landingpage-Bilder/cs-royal-mail-hero.jpg" alt="Große Sortierhalle mit Förderbändern voller Pakete und Computerarbeitsplätzen auf den Galerien" width="1800" height="771">
+    </div>
+  </div>
+</section>
+
+<!-- ==================== KENNZAHLEN ==================== -->
+<section class="fnl-stats">
+  <div class="fnl-container">
+    <div class="fnl-stats-grid"><div><div class="fnl-stat-num">36</div><div class="fnl-stat-label">Fußballfelder groß</div></div><div><div class="fnl-stat-num">9 m/s</div><div class="fnl-stat-label">Sortiergeschwindigkeit</div></div><div><div class="fnl-stat-num">3</div><div class="fnl-stat-label">Programmiersprachen, ein Kontrollverlust</div></div><div><div class="fnl-stat-num">1,4 Mrd. £</div><div class="fnl-stat-label">Gewinn im fünften Jahr</div></div><!-- VOR VERÖFFENTLICHUNG PRÜFEN: Währung (£) von Marcel bestätigen. --></div>
+  </div>
+</section>
+
+<!-- ==================== STORY ==================== -->
+<section class="fnl-section">
+  <div class="fnl-container">
+    <article class="fnl-article">
+
+      <p class="fnl-intro">1999 prägt Kevin Ashton den Begriff „Internet der Dinge“. Vier Jahre später steht Marcel Donges in einer Halle, in der dieser Begriff zum ersten Mal Wirklichkeit werden soll: im Postverteilzentrum der Royal Mail — damals das größte der Welt.</p>
+      <p>Durch die Anlage läuft die gesamte ausgehende Post Englands, Briefe wie Pakete. Die Sortiermaschinen von Siemens Dematic erstrecken sich über eine Fläche von 36 Fußballfeldern und sortieren mit neun Metern pro Sekunde. Die Software kommt von Borland, wo Marcel arbeitet. Drei Unternehmen, ein Ziel — und ein Problem, das zu Beginn niemand im Griff hat.</p>
+
+      <h2>Drei Sprachen, keine Kontrolle</h2>
+      <p>Hinter der Anlage steht ein großes Rechenzentrum mit Sun-Solaris-Maschinen. An jeder Wende der Sortierstrecke sitzt eine PC-Station, programmiert in Delphi, die die eingebetteten Steuerungssysteme der Maschinen lenkt. Drei Welten, drei Programmiersprachen — und keine gemeinsame Schicht, die sie verbindet.</p>
+      <p>Die Folge: Royal Mail hatte die Kontrolle über die eigene Anlage verloren. Jede Änderung an einer Stelle hatte unvorhersehbare Folgen an einer anderen. Das größte Verteilzentrum der Welt lief, aber niemand konnte es mehr steuern.</p>
+      <figure class="fnl-figure"><!-- BILD: cs-royal-mail-schema.jpg — src nach Mediathek-Upload ersetzen --><img class="fnl-img fnl-img--photo" src="../marcel-donges-landingpage-Bilder/cs-royal-mail-schema.jpg" alt="Schema der Anlage: Rechenzentrum, PC-Stationen und Sortierstrecke auf drei getrennten Plattformen" width="1400" height="933" loading="lazy"><figcaption>Drei Programmiersprachen, drei Welten — ohne gemeinsame Schicht. Die gestrichelte Ebene darüber fehlt noch.</figcaption></figure>
+
+      <h2>„Parcels move like IP packages“</h2>
+      <p>Die Idee, mit der Kevin Ashton das Projekt prägte, klingt heute selbstverständlich, war damals aber radikal: Physische Pakete sollten sich durch die reale Welt bewegen wie Datenpakete durch das Internet — sich selbst routen, selbst ihren Weg finden.</p>
+      <blockquote class="fnl-pull"><p class="fnl-quote">Then the parcels would book the next plane, the next truck, the next ship. Not a human books it. The parcels book it. And that’s Internet of Things.</p><p class="fnl-quote-src">— Marcel Donges über die Idee von Kevin Ashton</p></blockquote>
+      <p>Was an diesem Satz entscheidend ist, sieht man erst beim zweiten Lesen: Wenn Pakete buchen sollen, brauchen sie zuerst etwas, bei dem sie buchen können. <strong>Bevor es ein Internet der Dinge geben konnte, musste es ein Internet der Dienste geben.</strong></p>
+
+      <h2>Erst der Buchungsservice, dann das Internet der Dinge</h2>
+      <p>Das Team führte CORBA ein — eine Technologie, die ursprünglich im militärischen Umfeld genau für solche Probleme entwickelt worden war: Systeme in verschiedenen Sprachen und auf verschiedener Hardware über eine gemeinsame Schicht miteinander sprechen zu lassen. Über diese Schicht wurden die Fähigkeiten der Anlage als Dienste beschrieben, die andere Teile nutzen konnten — allen voran ein Buchungsservice.</p>
+      <blockquote class="fnl-pull"><p class="fnl-quote">Und dann mussten wir eben zuerst noch das Internet der Dienste bauen, damit die Pakete buchen konnten. Daraus ist dann Industrie 4.0 geworden — und diese ganzen Architekturschemen, mit denen ich heute arbeite.</p><p class="fnl-quote-src">— Marcel Donges</p></blockquote>
+      <p>Hier liegt der Ursprung eines Prinzips, das sich durch Marcels gesamte Arbeit zieht: <strong>Der Baustein ist der Service, nicht die Technik.</strong> Wer Dienste als Leistungszusagen beschreibt, kann die Technik darunter austauschen, ohne das Geschäft anzufassen.</p>
+
+      <h2>Das teuerste Jahr</h2>
+      <p>Der Umbau gelang — aber er hatte seinen Preis. Im ersten Jahr war das Problem gelöst, das Projekt lag jedoch 120 Millionen über Budget. Für den Kunden war das zunächst die einzige Zahl, die zählte. Marcels Team wurde, wie er es selbst beschreibt, „sozusagen unehrenhaft entlassen“.</p>
+
+      <h2>110, 220, 560 Millionen — und dann 1,4 Milliarden</h2>
+      <p>Was danach passierte, ist der Grund, warum Marcel diese Geschichte bis heute erzählt. Die Anlage, die nun steuerbar war und deren Dienste sich kombinieren ließen, begann Geld zu verdienen — und zwar nicht linear, sondern exponentiell.</p>
+      <div class="fnl-colchart" role="img" aria-label="Ergebnis pro Jahr: Jahr 1 minus 120 Millionen über Budget, danach 110, 220 und 560 Millionen und im fünften Jahr 1,4 Milliarden Gewinn"><div class="fnl-colchart-plot"><div class="fnl-colchart-neg" style="top:88.235%"><span>Verlust</span></div><div class="fnl-colchart-zero" style="top:88.235%"><span>0</span></div><svg class="fnl-colchart-line" viewBox="0 0 500 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="50,95.294 150,81.765 250,75.294 350,55.294 450,5.882" fill="none" stroke="#FBE894" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg><div class="fnl-colchart-cols"><div class="fnl-col" title="Jahr 1: −120 Mio. (Budgetüberschreitung)"><div class="fnl-col-bar fnl-col-bar--neg" style="top:88.235%;bottom:4.706%"></div><span class="fnl-col-dot fnl-col-dot--neg" style="top:95.294%"></span><span class="fnl-col-val fnl-col-val--neg" style="top:calc(88.235% - 30px)">−120 Mio.</span></div><div class="fnl-col" title="Jahr 2: 110 Mio. (Gewinn)"><div class="fnl-col-bar" style="top:81.765%;bottom:11.765%"></div><span class="fnl-col-dot" style="top:81.765%"></span><span class="fnl-col-val" style="top:calc(81.765% - 30px)">110 Mio.</span></div><div class="fnl-col" title="Jahr 3: 220 Mio. (Gewinn)"><div class="fnl-col-bar" style="top:75.294%;bottom:11.765%"></div><span class="fnl-col-dot" style="top:75.294%"></span><span class="fnl-col-val" style="top:calc(75.294% - 30px)">220 Mio.</span></div><div class="fnl-col" title="Jahr 4: 560 Mio. (Gewinn)"><div class="fnl-col-bar" style="top:55.294%;bottom:11.765%"></div><span class="fnl-col-dot" style="top:55.294%"></span><span class="fnl-col-val" style="top:calc(55.294% - 30px)">560 Mio.</span></div><div class="fnl-col" title="Jahr 5: 1,4 Mrd. (Gewinn)"><div class="fnl-col-bar" style="top:5.882%;bottom:11.765%"></div><span class="fnl-col-dot" style="top:5.882%"></span><span class="fnl-col-val" style="top:calc(5.882% - 30px)">1,4 Mrd.</span></div></div></div><div class="fnl-colchart-x"><span>Jahr 1</span><span>Jahr 2</span><span>Jahr 3</span><span>Jahr 4</span><span>Jahr 5</span></div><p class="fnl-bars-note">Jahr 1: Überschreitung des Budgets. Jahr 2–5: Gewinn pro Jahr. Angaben laut Marcel Donges.</p></div><!-- VOR VERÖFFENTLICHUNG PRÜFEN: echte Jahreszahlen statt "Jahr 1–5" einsetzen (Georgs Einwand: ohne Jahreszahlen wirkt die Reihe veraltet) und Währung bestätigen (£). -->
+      <p>Im zweiten Jahr standen 110 Millionen Gewinn in den Büchern — noch nicht genug, um das erste Jahr auszugleichen. Dann 220 Millionen. Dann 560 Millionen. Im fünften Jahr 1,4 Milliarden.</p>
+      <blockquote class="fnl-pull"><p class="fnl-quote">Und dann kamen sie mit der goldenen Kreditkarte zurück und haben gesagt: Entschuldigung.</p><p class="fnl-quote-src">— Marcel Donges</p></blockquote>
+
+      <h2>Was Royal Mail heute noch lehrt</h2>
+      <p>Die Technik von damals ist Geschichte. Das Muster nicht. Royal Mail zeigt, was passiert, wenn ein Unternehmen Digitalisierung nicht als Kostensenkung versteht, sondern als Umbau seines Geschäftsmodells:</p>
+      <ul class="fnl-list">
+        <li><span class="fnl-check">✓</span><span><strong>Exponentiell statt linear:</strong> Wer seine Leistungen als kombinierbare Dienste baut, wächst nicht Schritt für Schritt, sondern in Sprüngen.</span></li>
+        <li><span class="fnl-check">✓</span><span><strong>Services vor Technik:</strong> Erst die Leistungszusage definieren, dann die Technik darunter bauen — nicht umgekehrt.</span></li>
+        <li><span class="fnl-check">✓</span><span><strong>Das erste Jahr ist nicht das Ergebnis:</strong> Wer nur auf die Kosten des Umbaus schaut, übersieht, was er ermöglicht.</span></li>
+      </ul>
+      <p>Wer diese Welle ignoriert, steht am Strand und sieht zu, wie das Wasser zurückweicht — bis der Tsunami kommt. Nokia und Kodak haben erlebt, wie das endet. Die Frage ist, ob man der Nächste ist, der überrollt wird, oder der Nächste, der die Welle baut.</p>
+
+    </article>
+  </div>
+</section>
+
+<!-- ==================== AUF EINEN BLICK ==================== -->
+<section class="fnl-section fnl-section--alt">
+  <div class="fnl-container">
+    <div class="fnl-infobox">
+      <h2 class="fnl-h2">Das Projekt auf einen Blick</h2>
+      <p class="fnl-infobox-intro">Eine der ersten Anwendungen des Internets der Dinge — und der Ursprung von Marcels Grundsatz „Service vor Technik“.</p>
+      <dl class="fnl-facts"><div class="fnl-fact"><dt>Kunde</dt><dd>Royal Mail, Postverteilzentrum (damals das größte der Welt)</dd></div><div class="fnl-fact"><dt>Partner</dt><dd>Siemens Dematic (Sortiermaschinen), Borland (Software)</dd></div><div class="fnl-fact"><dt>Branche</dt><dd>Logistik, Post- und Paketverteilung</dd></div><div class="fnl-fact"><dt>Start</dt><dd>2003</dd></div><div class="fnl-fact"><dt>Ausgangslage</dt><dd>36 Fußballfelder, 9 m/s, gesamte Ausgangspost Englands; drei Programmiersprachen, Kontrollverlust</dd></div><div class="fnl-fact"><dt>Vorgehen</dt><dd>Gemeinsame Dienstschicht über CORBA, Buchungsservice als Grundlage für selbstbuchende Pakete</dd></div><div class="fnl-fact"><dt>Ergebnis</dt><dd>Jahr 1: 120 Mio. über Budget, danach 110 → 220 → 560 Mio. → 1,4 Mrd. Gewinn</dd></div></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ÜBER MARCEL DONGES ==================== -->
+<section class="fnl-section">
+  <div class="fnl-container">
+    <div class="fnl-author">
+      <!-- BILD: cs-marcel-donges.jpg — src nach Mediathek-Upload ersetzen -->
+      <img class="fnl-img fnl-author-img" src="../marcel-donges-landingpage-Bilder/cs-marcel-donges.jpg" alt="Porträt Marcel Donges" width="941" height="941" loading="lazy">
+      <div>
+        <div class="fnl-author-kicker">Über den Architekten des Projekts</div>
+        <h2>Marcel Donges</h2>
+        <p>Gründer und CTO von Cerulean Circle. Seit über 30 Jahren in Transformationsprojekten unterwegs — angefangen bei Borland, dem Hersteller von Delphi und Turbo Pascal, über Royal Mail und den Konzernumbau der Deutschen Post bis zu Workshops mit heutigen Industriekunden. Marcel verbindet Geschäftsmodell und IT-Architektur zu einem Modell und hat die Methode an über 500 Unternehmen angewendet — vom Startup bis zum Großkonzern.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WEITERE CASE STUDIES ==================== -->
+<section class="fnl-section fnl-section--alt">
+  <div class="fnl-container">
+    <h2 class="fnl-h2">Weitere Case Studies</h2>
+    <div class="fnl-cases-grid fnl-cases-grid--3">
+      <a class="fnl-case" href="case-study-deutsche-post.html"><!-- LINK HIER: URL der Case-Study-Seite -->
+        <div class="fnl-case-head"><span class="fnl-tag">Konzern</span><span class="fnl-case-name">DEUTSCHE POST</span></div>
+        <p class="fnl-case-sit">100&nbsp;Mio.&nbsp;€ IT-Budget pro Jahr, Teams mit bis zu 500 Leuten — der Konzernumbau zur heutigen DHL Group.</p>
+        <div class="fnl-case-num">5 Jahre</div>
+        <p class="fnl-case-sit" style="flex-grow:0;margin-top:6px;color:#D6D6D6;">statt 15 bis 20 Jahre wie bei den Banken</p>
+        <span class="fnl-case-more">Case Study lesen →</span>
+      </a>
+      <a class="fnl-case" href="case-study-bosch-electric-drive.html"><!-- LINK HIER: URL der Case-Study-Seite -->
+        <div class="fnl-case-head"><span class="fnl-tag">Industrie</span><span class="fnl-case-name">BOSCH ELECTRIC DRIVE</span></div>
+        <p class="fnl-case-sit">Überdiversifiziert: zu viele Motoren, zu viele Bereiche, zu wenig Koordination.</p>
+        <div class="fnl-case-num">5 Tage</div>
+        <p class="fnl-case-sit" style="flex-grow:0;margin-top:6px;color:#D6D6D6;">bis Geschäftsmodell und IT-Architektur nebeneinander auf dem Tisch lagen</p>
+        <span class="fnl-case-more">Case Study lesen →</span>
+      </a>
+      <a class="fnl-case" href="case-study-neom.html"><!-- LINK HIER: URL der Case-Study-Seite -->
+        <div class="fnl-case-head"><span class="fnl-tag">NEOM – Web 4.0</span><span class="fnl-case-name">THE LINE, SAUDI-ARABIEN</span></div>
+        <p class="fnl-case-sit">Eine 170 km lange Stadt, die es noch nicht gibt — jeder Block mit eigenem Recht, Eigentum und Geschäftsmodell.</p>
+        <div class="fnl-case-num">3 Monate</div>
+        <p class="fnl-case-sit" style="flex-grow:0;margin-top:6px;color:#D6D6D6;">von null bis zur Lieferung — in einer einzigen Anwendung</p>
+        <span class="fnl-case-more">Case Study lesen →</span>
+      </a>
+    </div>
+    <p style="margin-top:28px;"><a class="fnl-underline" href="../index.html#fnl-projekte">Alle Projekte ansehen</a></p>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="fnl-section">
+  <div class="fnl-container">
+    <div class="fnl-ctabox">
+      <h2 class="fnl-h2">Bauen Sie die nächste Welle — oder werden Sie von ihr überrollt?</h2>
+      <p>In einem Gespräch zeigen wir, wo in Ihrem Geschäftsmodell Leistungen stecken, die sich als Dienste bauen und skalieren lassen.</p>
+      <a class="fnl-btn" href="../index.html#fnl-webinar" id="fnl-end-cta">Kostenloses Strategiegespräch</a>
+      <p class="fnl-micro">IST-Situation, Framework, Zusammenarbeit</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FOOTER (wie Landingpage) ==================== -->
+<footer class="fnl-footer">
+  <div class="fnl-container">
+    <div class="fnl-footer-grid">
+      <div>
+        <span class="fnl-logo"><span class="fnl-logo-img" role="img" aria-label="Cerulean Circle"></span></span>
+        <p style="margin-top:16px; color:#B0B0B0; font-size:14px; max-width:300px;">Businessmodel-Architektur — Strategie, IT-Architektur und Implementierung aus einer Hand.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../index.html#fnl-ueber">Ansatz</a></li>
+          <li><a href="../index.html#fnl-projekte">Projekte</a></li>
+          <li><a href="../index.html#fnl-webinar">Strategiegespräch</a></li>
+          <li><a href="../index.html#fnl-faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:franz.humpert@ceruleancircle.com">franz.humpert@ceruleancircle.com</a></li>
+          <li><a href="tel:+4917696901879">+49 176/96901879</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <!-- LINK HIER: Impressum, Datenschutz, AGB verlinken -->
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">AGB</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fnl-copy">© 2026 Cerulean Circle. Alle Rechte vorbehalten.</div>
+  </div>
+</footer>
+
+<div class="fnl-sticky" id="fnl-sticky">
+  <a class="fnl-btn fnl-btn--block" href="../index.html#fnl-webinar">Strategiegespräch</a>
+</div>
+
+<script>
+(function(){
+  var burger = document.getElementById('fnl-burger');
+  var mnav = document.getElementById('fnl-mobilenav');
+  if (burger && mnav) {
+    burger.addEventListener('click', function(){
+      var open = mnav.classList.toggle('fnl-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  /* Sticky Mobile CTA: sichtbar nach dem Hero, ausgeblendet am Seitenende-CTA */
+  var sticky = document.getElementById('fnl-sticky');
+  var hero = document.getElementById('fnl-cs-hero');
+  var endCta = document.getElementById('fnl-end-cta');
+  if (sticky && hero && 'IntersectionObserver' in window) {
+    var heroVisible = true, endVisible = false;
+    var update = function(){ sticky.classList.toggle('fnl-visible', !heroVisible && !endVisible); };
+    new IntersectionObserver(function(e){ heroVisible = e[0].isIntersecting; update(); }).observe(hero);
+    if (endCta) new IntersectionObserver(function(e){ endVisible = e[0].isIntersecting; update(); }).observe(endCta);
+  }
+})();
+</script>
+
+</div>
+<!-- ============ ENDE CASE STUDY ============ -->
