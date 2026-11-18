@@ -58,6 +58,13 @@
   .fnl-header .fnl-btn{ display:none; padding:11px 20px; font-size:15px; }
   .fnl-burger{ display:flex; flex-direction:column; gap:5px; background:none !important; border:0; cursor:pointer; padding:10px; }
   .fnl-burger span{ display:block; width:24px; height:2px; background:var(--fnl-ink); }
+  /* ---------- Sprachwahl DE/EN (Header rechts) ---------- */
+  .fnl-header-r{ display:flex; align-items:center; gap:12px; }
+  .fnl-lang{ display:inline-flex; align-items:center; gap:2px; padding:3px; border:1px solid var(--fnl-border); border-radius:999px; font-family:var(--fnl-font-body); font-size:13px; font-weight:600; letter-spacing:.04em; line-height:1; }
+  .fnl-lang a{ display:inline-block; padding:6px 10px; border-radius:999px; color:var(--fnl-muted); text-decoration:none; }
+  .fnl-lang a:hover{ color:var(--fnl-gold); }
+  .fnl-lang a.fnl-lang-on{ background:var(--fnl-grad); color:#0A0A0A; }
+  @media (max-width:380px){ .fnl-header .fnl-logo-img{ width:128px; height:24px; } .fnl-lang a{ padding:6px 8px; } .fnl-header-r{ gap:6px; } }
   .fnl-mobilenav{ display:none; background:#2E2E2E; border-bottom:1px solid var(--fnl-border); padding:8px 20px 20px; }
   .fnl-mobilenav.fnl-open{ display:block; }
   .fnl-mobilenav a{ display:block; padding:12px 0; font-weight:500; color:var(--fnl-ink); border-bottom:1px solid #4A4A4A; }
@@ -215,8 +222,11 @@
       <a href="../index.html#fnl-webinar">Strategiegespräch</a>
       <a href="../index.html#fnl-faq">FAQ</a>
     </nav>
-    <a class="fnl-btn" href="../index.html#fnl-webinar">Strategiegespräch</a>
-    <button class="fnl-burger" id="fnl-burger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="fnl-header-r">
+      <a class="fnl-btn" href="../index.html#fnl-webinar">Strategiegespräch</a>
+      <div class="fnl-lang" role="navigation" aria-label="Sprache wählen"><a href="case-study-royal-mail.html" hreflang="de" lang="de" class="fnl-lang-on" aria-current="page">DE</a><a href="case-study-royal-mail_en.html" hreflang="en" lang="en">EN</a></div>
+      <button class="fnl-burger" id="fnl-burger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
   </div>
   <nav class="fnl-mobilenav" id="fnl-mobilenav">
     <a href="../index.html#fnl-ueber">Ansatz</a>
